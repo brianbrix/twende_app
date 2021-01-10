@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-sm-12"><h4>Repo name</h4>{{data.name}}
+        <hr></div>
+
+            <div class="col-sm-12"><h4>Repo Owner</h4>{{data.owner.login}}
+                <hr></div>
+
+           <div class="col-sm-12"><h4>Repo Description</h4>{{data.description}}
+               <hr></div>
+           <div class="col-sm-12"><h4>License</h4>{{data.license.spdx_id}}
+               </div>
+
+       </div>
+       <div class="row">
+
+            <table class="table table-striped">
+
+
+    <thead>
+      <tr>
+       <th> Item</th>
+       <th> Count</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Watchers</td>
+
+        <td>{{data.watchers}}</td></tr>
+        <tr><td>Ope Issues</td><td>{{data.open_issues}}</td></tr>
+        <tr><td>Forks</td><td>{{data.forks}}</td></tr>
+        <tr><td>Subscribers</td><td>{{data.subscribers_count}}</td></tr>
+        <tr><td>Stars</td><td>{{data.stargazers_count}}</td></tr>
+
+    </tr>
+
+    </tbody>
+  </table>
+                                           </div>
