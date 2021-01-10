@@ -42,7 +42,27 @@
         <td>{{k.name}}</td>
         <td>{{k.owner.login}}</td>
         <td data-id="{{k.full_name}}" ><button data-toggle="modal" data-target="#myModal">View</button></td>
-        <td><button id="add" data-class="{{k.id}}">Add</button></td>
+        <td data-class="{{k.id}}"><button id="add{{k.id}}" >Add</button></td>
+          <script>
+              $('#add{{k.id}}').click(function(){
+
+
+                 var id = $(event.target).closest('td').data('class');
+                 console.log(id);
+                $.ajax({
+                  type: 'GET', //THIS NEEDS TO BE GET
+                  url: "bookmark/"+id,
+                  success: function (data) {
+                   alert(data.message);
+                  console.log(data);
+                     //$('#details_page').html(data);
+                  },
+                  error: function(data) {
+                       console.log(data);
+                  }
+              });
+               });
+          </script>
       </tr>
     {% endfor%}
     {% endif%}
@@ -79,24 +99,7 @@
 
 
     });
-    $('#add').click(function(e){
-                e.preventDefault();
-                 var id = $(e.target).closest('button').data('class');
-                 console.log(id);
-                $.ajax({
-                  type: 'GET', //THIS NEEDS TO BE GET
-                  url: "bookmark/"+id,
-                  success: function (data) {
-                  console.log(data);
 
-
-                     //$('#details_page').html(data);
-                  },
-                  error: function(data) {
-                       console.log(data);
-                  }
-              });
-               });
 
 
 </script>

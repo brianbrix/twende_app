@@ -23,7 +23,9 @@
                         </div>
                         <!-- End:modal Add Product -->
 <div class="container">
-  <h2>Top 10 Python Repos</h2>
+  <h2>Bookmarked Repos</h2>
+      <div><a href="/" class="button">View Bookmarks</a></div>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -41,7 +43,31 @@
         <td>{{k.name}}</td>
         <td>{{k.owner.login}}</td>
         <td data-id="{{k.full_name}}" ><button data-toggle="modal" data-target="#myModal">View</button></td>
-        <td><button id="remove" data-class="{{k.id}}">Remove</button></td>
+        <td data-class="{{k.id}}"><button id="remove{{k.id}}" >Remove</button></td>
+          <script>
+              $('#remove{{k.id}}').click(function(e){
+                e.preventDefault();
+                 var id = $(e.target).closest('td').data('class');
+                 console.log(id);
+                $.ajax({
+                  type: 'GET', //THIS NEEDS TO BE GET
+                  url: "remove/"+id,
+                  success: function (data) {
+                  alert(data.message);
+                  location.reload();
+return false;
+
+
+
+
+                     //$('#details_page').html(data);
+                  },
+                  error: function(data) {
+                       console.log(data);
+                  }
+              });
+               });
+          </script>
       </tr>
     {% endfor%}
     {% endif%}
@@ -78,25 +104,7 @@
 
 
     });
-    $('#remove').click(function(e){
-                e.preventDefault();
-                 var id = $(e.target).closest('button').data('class');
-                 console.log(id);
-                $.ajax({
-                  type: 'GET', //THIS NEEDS TO BE GET
-                  url: "remove/"+id,
-                  success: function (data) {
-                  alert(data.message);
-                  console.log(data);
 
-
-                     //$('#details_page').html(data);
-                  },
-                  error: function(data) {
-                       console.log(data);
-                  }
-              });
-               });
 
 
 </script>

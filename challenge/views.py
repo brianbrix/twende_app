@@ -47,6 +47,6 @@ def remove(request, id):
     entry = Bookmarks.objects.filter(repo_id=id)
     if len(entry) > 0:
         Bookmarks.objects.filter(repo_id=id).delete()
-        return JsonResponse({'message': "Successfully deleted"})
+        return JsonResponse({'message': "Successfully removed"})
     else:
         return JsonResponse({'message': "The record was not found"})
