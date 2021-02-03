@@ -1,5 +1,6 @@
 
 # twende_app
+This is an ap that retries the top 10 most starred python repositories from git hub and displays them in a table and can also show more details, add to favourites e.t.c.
 To run this app. Follow the foollowing steps:
 1. Install python 3 in a unix like system
 2. Clone the app and navigate to to the folder where you cloned it
